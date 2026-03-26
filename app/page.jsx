@@ -1,6 +1,16 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
+import { FaArrowRight } from "react-icons/fa";
+import {
+  LuArmchair,
+  LuClock,
+  LuCoffee,
+  LuCroissant,
+  LuUsers,
+  LuWifi,
+} from "react-icons/lu";
 
 // ── Scroll animation hook ───────────────────────────────────────
 function useScrollAnimation() {
@@ -20,51 +30,128 @@ function useScrollAnimation() {
 }
 
 // ── Featured items data ─────────────────────────────────────────
+// const featured = [
+//   {
+//     emoji: "☕",
+//     name: "Signature Latte",
+//     desc: "Velvety espresso with hand-steamed milk and our secret house blend.",
+//     tag: "Best Seller",
+//     image: "/assets/coffee1.jpeg",
+//   },
+//   {
+//     emoji: "🥐",
+//     name: "Butter Croissant",
+//     desc: "Flaky, golden layers baked fresh every morning until noon.",
+//     tag: "Fresh Daily",
+//     image: "/assets/coffee3.jpeg",
+//   },
+//   {
+//     emoji: "🥗",
+//     name: "Garden Salad Bowl",
+//     desc: "Seasonal greens, cherry tomatoes, feta & herb vinaigrette.",
+//     tag: "Chef's Pick",
+//     image: "/assets/coffee2.jpeg",
+//   },
+// ];
 const featured = [
   {
-    emoji: "☕",
-    name: "Signature Latte",
-    desc: "Velvety espresso with hand-steamed milk and our secret house blend.",
-    price: "৳ 220",
+    name: "Artisan Espresso",
+    desc: "Single-origin beans roasted to perfection. Rich, bold, and beautifully balanced.",
+    tag: "Signature",
+    price: "৳ 280",
+    image: "/assets/coffee1.jpeg",
+  },
+  {
+    name: "Premium Blends",
+    desc: "Hand-selected beans from around the world. Smooth, complex, and full of character.",
     tag: "Best Seller",
-  },
-  {
-    emoji: "🥐",
-    name: "Butter Croissant",
-    desc: "Flaky, golden layers baked fresh every morning until noon.",
-    price: "৳ 150",
-    tag: "Fresh Daily",
-  },
-  {
-    emoji: "🥗",
-    name: "Garden Salad Bowl",
-    desc: "Seasonal greens, cherry tomatoes, feta & herb vinaigrette.",
     price: "৳ 320",
-    tag: "Chef's Pick",
+    image: "/assets/coffee2.jpeg",
+  },
+  {
+    name: "Fresh Baked Daily",
+    desc: "Croissants, muffins, and sweet delights baked fresh every morning.",
+    tag: "Fresh Daily",
+    price: "৳ 180",
+    image: "/assets/coffee3.jpeg",
   },
 ];
 
-// ── Why us data ─────────────────────────────────────────────────
-const whyUs = [
+const popularItems = [
   {
-    icon: "🌿",
+    name: "Butter Croissant",
+    price: "4.00",
+    desc: "Flaky, golden layers baked fresh every morning",
+    image: "/assets/butter-croissant.jpeg",
+  },
+  {
+    name: "Chocolate Croissant",
+    price: "5.00",
+    desc: "Buttery pastry filled with rich dark chocolate",
+    image: "/assets/chocolate-croissant.jpeg",
+  },
+  {
+    name: "Cinnamon Roll",
+    price: "3.5",
+    desc: "Soft, gooey roll with cinnamon sugar and cream cheese glaze",
+    image: "/assets/cinnamon-roll.jpeg",
+  },
+  // {
+  //   name: "Banana Bread Slice",
+  //   price: "2.00",
+  //   desc: "Moist banana bread with walnuts and a hint of cinnamon",
+  //   image: "/assets/banana-bread-slice.jpeg",
+  // },
+  // {
+  //   name: "Blueberry Muffin",
+  //   price: "4.5",
+  //   desc: "Fresh blueberries bursting in every bite",
+  //   image: "/assets/blueberry-muffin.jpeg",
+  // },
+  // {
+  //   name: "Cheese Danish",
+  //   price: "4.00",
+  //   desc: "Flaky pastry with sweet cream cheese filling",
+  //   image: "/assets/cheese-danish.jpeg",
+  // },
+];
+
+const combinedFeatures = [
+  {
+    icon: <LuCoffee size={28} />,
+    bgColor: "#C9952A",
+    title: "Artisan Coffee",
+    desc: "Single-origin beans roasted fresh daily. Every cup tells a story.",
+  },
+  {
+    icon: <LuWifi size={28} />,
+    bgColor: "#14B8A6",
+    title: "High-Speed WiFi",
+    desc: "Fiber-optic internet built for productivity and focus.",
+  },
+  {
+    icon: <LuCroissant size={28} />,
+    bgColor: "#C9952A",
     title: "Fresh Ingredients",
-    body: "We source locally every morning — no shortcuts, ever.",
+    desc: "We source locally every morning — no shortcuts, ever.",
   },
   {
-    icon: "👩‍🍳",
-    title: "Skilled Chefs",
-    body: "Our kitchen team brings 10+ years of passion to every plate.",
-  },
-  {
-    icon: "🏡",
+    icon: <LuArmchair size={28} />,
+    bgColor: "#C9952A",
     title: "Cozy Atmosphere",
-    body: "Warm lights, soft music, and a space that feels like home.",
+    desc: "Warm lighting, comfortable seating, and a space that feels like home.",
   },
   {
-    icon: "♻️",
-    title: "Eco Conscious",
-    body: "Recyclable packaging, zero food waste, green-first approach.",
+    icon: <LuClock size={28} />,
+    bgColor: "#14B8A6",
+    title: "Extended Hours",
+    desc: "Open early till late — your schedule, our priority.",
+  },
+  {
+    icon: <LuUsers size={28} />,
+    bgColor: "#C9952A",
+    title: "Community Hub",
+    desc: "Connect with fellow creators, entrepreneurs, and coffee lovers.",
   },
 ];
 
@@ -154,7 +241,7 @@ export default function Home() {
         </div>
 
         {/* Scroll hint */}
-        <div
+        {/* <div
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           style={{ color: "#6B5040", animation: "fadeIn 1.2s ease 1s both" }}
         >
@@ -165,18 +252,76 @@ export default function Home() {
               background: "linear-gradient(to bottom, #6B5040, transparent)",
             }}
           />
+        </div> */}
+      </section>
+
+      <section className="py-24 px-6 bg-[#F5E6CC]">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <p className="text-[#C9952A] text-sm tracking-widest uppercase font-medium mb-3">
+              WHY BREW & BLOOM
+            </p>
+            <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight text-[#4A2C17] mb-4">
+              Where Heritage Meets Innovation
+            </h2>
+            <p className="max-w-3xl mx-auto text-lg text-[#6B5040] leading-relaxed">
+              Brew & Bloom blends the timeless art of coffee craftsmanship with
+              modern workspace amenities. A sanctuary for digital creators,
+              coffee lovers, and community builders.
+            </p>
+          </div>
+
+          {/* Features Grid - Combined & Improved */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {combinedFeatures.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 group"
+              >
+                {/* Icon Circle */}
+                <div
+                  className="w-16 h-16 flex items-center justify-center rounded-2xl mb-6 transition-transform group-hover:scale-110"
+                  style={{ backgroundColor: item.bgColor || "#C9952A" }}
+                >
+                  <div className="text-white text-3xl">{item.icon}</div>
+                </div>
+
+                {/* Title */}
+                <h3 className="font-display font-semibold text-2xl text-[#4A2C17] mb-3">
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-[#7B5C3E] leading-relaxed">
+                  {item.desc || item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Discover Button */}
+        <div className="flex justify-center mt-16">
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-3 bg-[#4A2C17] hover:bg-[#3A2212] text-white px-10 py-4 rounded-full font-medium transition-all duration-300"
+          >
+            Discover Our Story
+            <FaArrowRight />
+          </Link>
         </div>
       </section>
 
       {/* ── Featured Items ────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#FDF6EC" }}>
+      <section className="py-24 px-6 bg-[#FDF6EC]">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-on-scroll">
+          {/* Header */}
+          <div className="text-center mb-16">
             <p
               className="text-xs tracking-widest uppercase mb-3"
               style={{ color: "#C9952A" }}
             >
-              From Our Kitchen
+              CRAFTED WITH PASSION
             </p>
             <h2
               className="font-display font-bold mb-4"
@@ -185,145 +330,208 @@ export default function Home() {
                 color: "#4A2C17",
               }}
             >
-              Today's Favourites
+              Signature Offerings
             </h2>
-            <div className="divider mx-auto">
-              <div className="divider-line" />
-              <div className="divider-dot" />
-              <div className="divider-line" />
-            </div>
+            <p className="text-[#7B5C3E] max-w-2xl mx-auto leading-relaxed">
+              Each item on our menu is a celebration of quality ingredients and
+              expert craftsmanship. From morning espresso to afternoon pastries.
+            </p>
           </div>
 
+          {/* Cards Grid - With Background Images */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featured.map((item, i) => (
               <div
                 key={item.name}
-                className="menu-card p-8 animate-on-scroll"
-                style={{ transitionDelay: `${i * 0.12}s` }}
+                className="group relative overflow-hidden rounded-2xl h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500"
+                style={{ transitionDelay: `${i * 0.1}s` }}
               >
-                <div className="text-5xl mb-5">{item.emoji}</div>
+                {/* Background Image */}
                 <div
-                  className="inline-block text-xs px-3 py-1 mb-4 tracking-widest uppercase"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                   style={{
-                    background: "#F5E6CC",
-                    color: "#A0673A",
-                    fontSize: "0.65rem",
+                    backgroundImage: `url('${item.image}')`,
                   }}
-                >
-                  {item.tag}
-                </div>
-                <h3
-                  className="font-display font-semibold text-xl mb-2"
-                  style={{ color: "#4A2C17" }}
-                >
-                  {item.name}
-                </h3>
-                <p
-                  className="text-sm leading-relaxed mb-6"
-                  style={{ color: "#7B5C3E" }}
-                >
-                  {item.desc}
-                </p>
-                <div
-                  className="font-display font-bold text-lg"
-                  style={{ color: "#C9952A" }}
-                >
-                  {item.price}
+                />
+
+                {/* Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/70" />
+
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-10">
+                  {/* Tag */}
+                  <div
+                    className="inline-block text-xs px-4 py-1.5 mb-4 rounded-full tracking-widest uppercase font-medium"
+                    style={{
+                      background: "rgba(255,255,255,0.15)",
+                      backdropFilter: "blur(10px)",
+                    }}
+                  >
+                    {item.tag}
+                  </div>
+
+                  <h3 className="font-display font-bold text-2xl mb-2 leading-tight">
+                    {item.name}
+                  </h3>
+
+                  <p className="text-sm leading-relaxed mb-6 text-white/90 line-clamp-2">
+                    {item.desc}
+                  </p>
+
+                  <Link
+                    href="/menu"
+                    className="group inline-flex items-center gap-3 text-sm uppercase tracking-widest text-[#EAA444] hover:text-[#C9952A]"
+                  >
+                    Explore
+                    <span className="transition-all duration-300 group-hover:translate-x-2 group-hover:text-[#C9952A]">
+                      <FaArrowRight size={17} />
+                    </span>
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12 animate-on-scroll">
-            <Link href="/menu" className="btn-primary">
-              View Full Menu
+          {/* View Full Menu Button */}
+          <div className="text-center mt-16">
+            <Link
+              href="/menu"
+              className="inline-flex items-center gap-2 bg-[#EAA444] hover:bg-[#c88238] text-white px-6 py-3 rounded-xl font-medium transition-all duration-300"
+            >
+              View Full Menu <FaArrowRight />
             </Link>
           </div>
         </div>
       </section>
 
       {/* ── About Snippet ─────────────────────────────────────── */}
-      <section
-        className="py-24 px-6"
-        style={{
-          background: "linear-gradient(135deg, #4A2C17 0%, #2D5A27 100%)",
-        }}
-      >
-        <div className="max-w-4xl mx-auto text-center animate-on-scroll">
-          <p
-            className="text-xs tracking-widest uppercase mb-4"
-            style={{ color: "#C9952A" }}
-          >
-            Our Story
-          </p>
-          <h2
-            className="font-display font-bold mb-6 leading-tight"
-            style={{
-              fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-              color: "#FDF6EC",
-            }}
-          >
-            Born from a Love of
-            <br />
-            <em>Good Coffee &amp; Good Company</em>
-          </h2>
-          <p
-            className="text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
-            style={{ color: "#C4A882" }}
-          >
-            Since 2019, Brew &amp; Bloom has been a gathering place — for
-            students pulling all-nighters, couples on first dates, and families
-            celebrating small moments. We believe a great café is more than a
-            menu; it's a feeling.
-          </p>
-          <Link href="/about" className="btn-outline">
-            Read Our Story
-          </Link>
+      <section className="py-24 px-6 bg-[#F5E6CC]">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Side - Text Content */}
+            <div className="space-y-8">
+              <p className="text-[#C9952A] text-sm tracking-widest uppercase font-medium">
+                OUR STORY
+              </p>
+
+              <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight text-[#4A2C17]">
+                Crafted with Passion,
+                <br />
+                Served with Love
+              </h2>
+
+              <div className="space-y-6 text-[#6B5040] text-[17px] leading-relaxed">
+                <p>
+                  Since 2019, Brew & Bloom has been more than just a café — it's
+                  a community gathering place where friendships are formed over
+                  perfectly brewed coffee.
+                </p>
+                <p>
+                  We source our beans from sustainable farms around the world
+                  and roast them in small batches to ensure the freshest, most
+                  flavorful cup every time.
+                </p>
+              </div>
+
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-3 group bg-white text-[#4A2C17] border-[1px] border-[#4A2C17] hover:bg-[#C9952A] text-white px-8 py-4 rounded-xl font-medium transition-all duration-300"
+              >
+                Learn More About Us
+                <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+            {/* Right Side - Two Images */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Coffee Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-lg aspect-[3/4]">
+                <Image
+                  width={500}
+                  height={500}
+                  src="/assets/story1.jpeg"
+                  alt="Artisan Coffee"
+                  className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                />
+              </div>
+
+              {/* Pastries Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-lg aspect-[3/4] mt-8 sm:mt-12">
+                <Image
+                  width={500}
+                  height={500}
+                  src="/assets/story2.jpeg"
+                  alt="Fresh Baked Pastries"
+                  className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ── Why Us ────────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#FDF6EC" }}>
+      {/* Popular Items */}
+      <section className="py-24 px-6 bg-[#FDF6EC]">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-on-scroll">
-            <p
-              className="text-xs tracking-widest uppercase mb-3"
-              style={{ color: "#C9952A" }}
-            >
-              Why Choose Us
+          {/* Header */}
+          <div className="text-center mb-16">
+            <p className="text-[#C9952A] text-sm tracking-widest uppercase font-medium mb-3">
+              CUSTOMER FAVORITES
             </p>
-            <h2
-              className="font-display font-bold"
-              style={{
-                fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-                color: "#4A2C17",
-              }}
-            >
-              The Brew &amp; Bloom Difference
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#4A2C17] mb-4">
+              Popular Items
             </h2>
+            <p className="text-[#6B5040] max-w-2xl mx-auto text-lg">
+              Discover what our guests love most — handcrafted with care every
+              day.
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyUs.map((item, i) => (
+
+          {/* Popular Items Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {popularItems.map((item, index) => (
               <div
-                key={item.title}
-                className="text-center animate-on-scroll"
-                style={{ transitionDelay: `${i * 0.1}s` }}
+                key={index}
+                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3
-                  className="font-display font-semibold mb-2"
-                  style={{ color: "#4A2C17" }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "#7B5C3E" }}
-                >
-                  {item.body}
-                </p>
+                {/* Image Placeholder */}
+                <div className="h-80 bg-gray-200 relative overflow-hidden">
+                  <Image
+                    height={400}
+                    width={400}
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="font-display font-semibold text-xl text-[#4A2C17]">
+                      {item.name}
+                    </h3>
+                    <span className="font-display font-bold text-[#C9952A] text-lg">
+                      $ {item.price}
+                    </span>
+                  </div>
+                  <p className="text-[#7B5C3E] text-sm leading-relaxed line-clamp-2">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* View Full Menu Button */}
+          <div className="text-center mt-10">
+            <Link
+              href="/menu"
+              className="inline-flex items-center gap-3 bg-[#4A2C17] hover:bg-[#3A2212] text-white px-10 py-4 rounded-full font-medium transition-all"
+            >
+              View Full Menu
+              <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </section>
