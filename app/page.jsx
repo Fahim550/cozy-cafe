@@ -77,66 +77,81 @@ const featured = [
   },
 ];
 
-const features = [
+const popularItems = [
+  {
+    name: "Butter Croissant",
+    price: "4.00",
+    desc: "Flaky, golden layers baked fresh every morning",
+    image: "/assets/butter-croissant.jpeg",
+  },
+  {
+    name: "Chocolate Croissant",
+    price: "5.00",
+    desc: "Buttery pastry filled with rich dark chocolate",
+    image: "/assets/chocolate-croissant.jpeg",
+  },
+  {
+    name: "Cinnamon Roll",
+    price: "3.5",
+    desc: "Soft, gooey roll with cinnamon sugar and cream cheese glaze",
+    image: "/assets/cinnamon-roll.jpeg",
+  },
+  // {
+  //   name: "Banana Bread Slice",
+  //   price: "2.00",
+  //   desc: "Moist banana bread with walnuts and a hint of cinnamon",
+  //   image: "/assets/banana-bread-slice.jpeg",
+  // },
+  // {
+  //   name: "Blueberry Muffin",
+  //   price: "4.5",
+  //   desc: "Fresh blueberries bursting in every bite",
+  //   image: "/assets/blueberry-muffin.jpeg",
+  // },
+  // {
+  //   name: "Cheese Danish",
+  //   price: "4.00",
+  //   desc: "Flaky pastry with sweet cream cheese filling",
+  //   image: "/assets/cheese-danish.jpeg",
+  // },
+];
+
+const combinedFeatures = [
   {
     icon: <LuCoffee size={28} />,
     bgColor: "#C9952A",
     title: "Artisan Coffee",
-    desc: "Sourced from single-origin beans and roasted to perfection. Every cup tells a story of craftsmanship.",
+    desc: "Single-origin beans roasted fresh daily. Every cup tells a story.",
   },
   {
     icon: <LuWifi size={28} />,
     bgColor: "#14B8A6",
     title: "High-Speed WiFi",
-    desc: "Fiber-optic internet built for productivity. Upload, download, and video call without interruption.",
-  },
-  {
-    icon: <LuArmchair size={28} />,
-    bgColor: "#C9952A",
-    title: "Curated Ambiance",
-    desc: "Thoughtfully designed spaces with comfortable seating, warm lighting, and a creative atmosphere.",
+    desc: "Fiber-optic internet built for productivity and focus.",
   },
   {
     icon: <LuCroissant size={28} />,
     bgColor: "#C9952A",
-    title: "Fresh Cuisine",
-    desc: "From flaky croissants to hearty sandwiches — crafted daily with premium ingredients.",
+    title: "Fresh Ingredients",
+    desc: "We source locally every morning — no shortcuts, ever.",
+  },
+  {
+    icon: <LuArmchair size={28} />,
+    bgColor: "#C9952A",
+    title: "Cozy Atmosphere",
+    desc: "Warm lighting, comfortable seating, and a space that feels like home.",
   },
   {
     icon: <LuClock size={28} />,
     bgColor: "#14B8A6",
     title: "Extended Hours",
-    desc: "Open early for your morning brew and late for night owls. Your schedule, our priority.",
+    desc: "Open early till late — your schedule, our priority.",
   },
   {
     icon: <LuUsers size={28} />,
     bgColor: "#C9952A",
     title: "Community Hub",
-    desc: "Connect with fellow creators, entrepreneurs, and coffee lovers in an inspiring environment.",
-  },
-];
-
-// ── Why us data ─────────────────────────────────────────────────
-const whyUs = [
-  {
-    icon: "🌿",
-    title: "Fresh Ingredients",
-    body: "We source locally every morning — no shortcuts, ever.",
-  },
-  {
-    icon: "👩‍🍳",
-    title: "Skilled Chefs",
-    body: "Our kitchen team brings 10+ years of passion to every plate.",
-  },
-  {
-    icon: "🏡",
-    title: "Cozy Atmosphere",
-    body: "Warm lights, soft music, and a space that feels like home.",
-  },
-  {
-    icon: "♻️",
-    title: "Eco Conscious",
-    body: "Recyclable packaging, zero food waste, green-first approach.",
+    desc: "Connect with fellow creators, entrepreneurs, and coffee lovers.",
   },
 ];
 
@@ -240,65 +255,65 @@ export default function Home() {
         </div> */}
       </section>
 
-      <section className="py-20 px-6 bg-[#FDF6EC]">
+      <section className="py-24 px-6 bg-[#F5E6CC]">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
             <p className="text-[#C9952A] text-sm tracking-widest uppercase font-medium mb-3">
-              WHERE HERITAGE MEETS INNOVATION
+              WHY BREW & BLOOM
             </p>
-            <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight text-[#4A2C17] mb-6">
-              A Sanctuary for Digital Creators
+            <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight text-[#4A2C17] mb-4">
+              Where Heritage Meets Innovation
             </h2>
             <p className="max-w-3xl mx-auto text-lg text-[#6B5040] leading-relaxed">
               Brew & Bloom blends the timeless art of coffee craftsmanship with
-              modern workspace amenities. Whether you're closing a deal, coding
-              your next app, or simply savoring the moment — we've created the
-              perfect environment.
+              modern workspace amenities. A sanctuary for digital creators,
+              coffee lovers, and community builders.
             </p>
           </div>
 
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
+          {/* Features Grid - Combined & Improved */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {combinedFeatures.map((item, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 group"
+                className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 group"
               >
-                {/* Icon */}
+                {/* Icon Circle */}
                 <div
-                  className="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 transition-transform group-hover:scale-110"
-                  style={{ backgroundColor: feature.bgColor }}
+                  className="w-16 h-16 flex items-center justify-center rounded-2xl mb-6 transition-transform group-hover:scale-110"
+                  style={{ backgroundColor: item.bgColor || "#C9952A" }}
                 >
-                  <div className="text-white">{feature.icon}</div>
+                  <div className="text-white text-3xl">{item.icon}</div>
                 </div>
 
                 {/* Title */}
                 <h3 className="font-display font-semibold text-2xl text-[#4A2C17] mb-3">
-                  {feature.title}
+                  {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-[#7B5C3E] leading-relaxed">{feature.desc}</p>
+                <p className="text-[#7B5C3E] leading-relaxed">
+                  {item.desc || item.body}
+                </p>
               </div>
             ))}
           </div>
-
-          {/* Discover Button */}
-          <div className="flex justify-center mt-16">
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-3 bg-[#4A2C17] hover:bg-[#3A2212] text-white px-10 py-4 rounded-full font-medium transition-all duration-300"
-            >
-              Discover Our Story
-              <FaArrowRight />
-            </Link>
-          </div>
+        </div>
+        {/* Discover Button */}
+        <div className="flex justify-center mt-16">
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-3 bg-[#4A2C17] hover:bg-[#3A2212] text-white px-10 py-4 rounded-full font-medium transition-all duration-300"
+          >
+            Discover Our Story
+            <FaArrowRight />
+          </Link>
         </div>
       </section>
 
       {/* ── Featured Items ────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-[#F5E6CC]">
+      <section className="py-24 px-6 bg-[#FDF6EC]">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
@@ -381,7 +396,7 @@ export default function Home() {
           <div className="text-center mt-16">
             <Link
               href="/menu"
-              className="inline-flex items-center gap-2 bg-[#EAA444] hover:bg-[#c88238] text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-[#EAA444] hover:bg-[#c88238] text-white px-6 py-3 rounded-xl font-medium transition-all duration-300"
             >
               View Full Menu <FaArrowRight />
             </Link>
@@ -390,46 +405,7 @@ export default function Home() {
       </section>
 
       {/* ── About Snippet ─────────────────────────────────────── */}
-      {/* <section
-        className="py-24 px-6"
-        style={{
-          background: "linear-gradient(135deg, #4A2C17 0%, #2D5A27 100%)",
-        }}
-      >
-        <div className="max-w-4xl mx-auto text-center animate-on-scroll">
-          <p
-            className="text-xs tracking-widest uppercase mb-4"
-            style={{ color: "#C9952A" }}
-          >
-            Our Story
-          </p>
-          <h2
-            className="font-display font-bold mb-6 leading-tight"
-            style={{
-              fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-              color: "#FDF6EC",
-            }}
-          >
-            Born from a Love of
-            <br />
-            <em>Good Coffee &amp; Good Company</em>
-          </h2>
-          <p
-            className="text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
-            style={{ color: "#C4A882" }}
-          >
-            Since 2019, Brew &amp; Bloom has been a gathering place — for
-            students pulling all-nighters, couples on first dates, and families
-            celebrating small moments. We believe a great café is more than a
-            menu; it's a feeling.
-          </p>
-          <Link href="/about" className="btn-outline">
-            Read Our Story
-          </Link>
-        </div>
-      </section> */}
-
-      <section className="py-24 px-6 bg-[#FDF6EC]">
+      <section className="py-24 px-6 bg-[#F5E6CC]">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Side - Text Content */}
@@ -459,12 +435,9 @@ export default function Home() {
 
               <Link
                 href="/about"
-                className="inline-flex items-center gap-3 group bg-[#4A2C17] hover:bg-[#3A2212] text-white px-8 py-4 rounded-full font-medium transition-all duration-300"
+                className="inline-flex items-center gap-3 group bg-white text-[#4A2C17] border-[1px] border-[#4A2C17] hover:bg-[#C9952A] text-white px-8 py-4 rounded-xl font-medium transition-all duration-300"
               >
                 Learn More About Us
-                {/* <span className="transition-transform group-hover:translate-x-1">
-                  →
-                </span> */}
                 <FaArrowRight className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -497,48 +470,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Why Us ────────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#FDF6EC" }}>
+      {/* Popular Items */}
+      <section className="py-24 px-6 bg-[#FDF6EC]">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-on-scroll">
-            <p
-              className="text-xs tracking-widest uppercase mb-3"
-              style={{ color: "#C9952A" }}
-            >
-              Why Choose Us
+          {/* Header */}
+          <div className="text-center mb-16">
+            <p className="text-[#C9952A] text-sm tracking-widest uppercase font-medium mb-3">
+              CUSTOMER FAVORITES
             </p>
-            <h2
-              className="font-display font-bold"
-              style={{
-                fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-                color: "#4A2C17",
-              }}
-            >
-              The Brew &amp; Bloom Difference
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#4A2C17] mb-4">
+              Popular Items
             </h2>
+            <p className="text-[#6B5040] max-w-2xl mx-auto text-lg">
+              Discover what our guests love most — handcrafted with care every
+              day.
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyUs.map((item, i) => (
+
+          {/* Popular Items Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {popularItems.map((item, index) => (
               <div
-                key={item.title}
-                className="text-center animate-on-scroll"
-                style={{ transitionDelay: `${i * 0.1}s` }}
+                key={index}
+                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3
-                  className="font-display font-semibold mb-2"
-                  style={{ color: "#4A2C17" }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "#7B5C3E" }}
-                >
-                  {item.body}
-                </p>
+                {/* Image Placeholder */}
+                <div className="h-80 bg-gray-200 relative overflow-hidden">
+                  <Image
+                    height={400}
+                    width={400}
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="font-display font-semibold text-xl text-[#4A2C17]">
+                      {item.name}
+                    </h3>
+                    <span className="font-display font-bold text-[#C9952A] text-lg">
+                      $ {item.price}
+                    </span>
+                  </div>
+                  <p className="text-[#7B5C3E] text-sm leading-relaxed line-clamp-2">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* View Full Menu Button */}
+          <div className="text-center mt-10">
+            <Link
+              href="/menu"
+              className="inline-flex items-center gap-3 bg-[#4A2C17] hover:bg-[#3A2212] text-white px-10 py-4 rounded-full font-medium transition-all"
+            >
+              View Full Menu
+              <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </section>
