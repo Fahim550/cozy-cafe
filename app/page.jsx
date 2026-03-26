@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect } from "react";
+import { FaArrowRight } from "react-icons/fa";
 
 // ── Scroll animation hook ───────────────────────────────────────
 function useScrollAnimation() {
@@ -20,27 +21,50 @@ function useScrollAnimation() {
 }
 
 // ── Featured items data ─────────────────────────────────────────
+// const featured = [
+//   {
+//     emoji: "☕",
+//     name: "Signature Latte",
+//     desc: "Velvety espresso with hand-steamed milk and our secret house blend.",
+//     tag: "Best Seller",
+//     image: "/assets/coffee1.jpeg",
+//   },
+//   {
+//     emoji: "🥐",
+//     name: "Butter Croissant",
+//     desc: "Flaky, golden layers baked fresh every morning until noon.",
+//     tag: "Fresh Daily",
+//     image: "/assets/coffee3.jpeg",
+//   },
+//   {
+//     emoji: "🥗",
+//     name: "Garden Salad Bowl",
+//     desc: "Seasonal greens, cherry tomatoes, feta & herb vinaigrette.",
+//     tag: "Chef's Pick",
+//     image: "/assets/coffee2.jpeg",
+//   },
+// ];
 const featured = [
   {
-    emoji: "☕",
-    name: "Signature Latte",
-    desc: "Velvety espresso with hand-steamed milk and our secret house blend.",
-    price: "৳ 220",
+    name: "Artisan Espresso",
+    desc: "Single-origin beans roasted to perfection. Rich, bold, and beautifully balanced.",
+    tag: "Signature",
+    price: "৳ 280",
+    image: "/assets/coffee1.jpeg",
+  },
+  {
+    name: "Premium Blends",
+    desc: "Hand-selected beans from around the world. Smooth, complex, and full of character.",
     tag: "Best Seller",
-  },
-  {
-    emoji: "🥐",
-    name: "Butter Croissant",
-    desc: "Flaky, golden layers baked fresh every morning until noon.",
-    price: "৳ 150",
-    tag: "Fresh Daily",
-  },
-  {
-    emoji: "🥗",
-    name: "Garden Salad Bowl",
-    desc: "Seasonal greens, cherry tomatoes, feta & herb vinaigrette.",
     price: "৳ 320",
-    tag: "Chef's Pick",
+    image: "/assets/coffee2.jpeg",
+  },
+  {
+    name: "Fresh Baked Daily",
+    desc: "Croissants, muffins, and sweet delights baked fresh every morning.",
+    tag: "Fresh Daily",
+    price: "৳ 180",
+    image: "/assets/coffee3.jpeg",
   },
 ];
 
@@ -154,7 +178,7 @@ export default function Home() {
         </div>
 
         {/* Scroll hint */}
-        <div
+        {/* <div
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           style={{ color: "#6B5040", animation: "fadeIn 1.2s ease 1s both" }}
         >
@@ -165,11 +189,11 @@ export default function Home() {
               background: "linear-gradient(to bottom, #6B5040, transparent)",
             }}
           />
-        </div>
+        </div> */}
       </section>
 
       {/* ── Featured Items ────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#FDF6EC" }}>
+      {/* <section className="py-24 px-6" style={{ background: "#FDF6EC" }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-on-scroll">
             <p
@@ -237,6 +261,101 @@ export default function Home() {
           <div className="text-center mt-12 animate-on-scroll">
             <Link href="/menu" className="btn-primary">
               View Full Menu
+            </Link>
+          </div>
+        </div>
+      </section> */}
+      <section className="py-24 px-6 bg-[#FDF6EC]">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <p
+              className="text-xs tracking-widest uppercase mb-3"
+              style={{ color: "#C9952A" }}
+            >
+              CRAFTED WITH PASSION
+            </p>
+            <h2
+              className="font-display font-bold mb-4"
+              style={{
+                fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+                color: "#4A2C17",
+              }}
+            >
+              Signature Offerings
+            </h2>
+            <p className="text-[#7B5C3E] max-w-2xl mx-auto leading-relaxed">
+              Each item on our menu is a celebration of quality ingredients and
+              expert craftsmanship. From morning espresso to afternoon pastries.
+            </p>
+          </div>
+
+          {/* Cards Grid - With Background Images */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {featured.map((item, i) => (
+              <div
+                key={item.name}
+                className="group relative overflow-hidden rounded-2xl h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500"
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                {/* Background Image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{
+                    backgroundImage: `url('${item.image}')`,
+                  }}
+                />
+
+                {/* Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/70" />
+
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-10">
+                  {/* Tag */}
+                  <div
+                    className="inline-block text-xs px-4 py-1.5 mb-4 rounded-full tracking-widest uppercase font-medium"
+                    style={{
+                      background: "rgba(255,255,255,0.15)",
+                      backdropFilter: "blur(10px)",
+                    }}
+                  >
+                    {item.tag}
+                  </div>
+
+                  <h3 className="font-display font-bold text-2xl mb-2 leading-tight">
+                    {item.name}
+                  </h3>
+
+                  <p className="text-sm leading-relaxed mb-6 text-white/90 line-clamp-2">
+                    {item.desc}
+                  </p>
+
+                  <div className="flex items-center justify-between">
+                    {/* <div
+                      className="font-display font-bold text-2xl"
+                      style={{ color: "#F5E6CC" }}
+                    >
+                      {item.price}
+                    </div> */}
+                    <Link
+                      href="/menu"
+                      className="text-sm uppercase tracking-widest hover:underline flex items-center gap-2"
+                    >
+                      Explore <FaArrowRight />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* View Full Menu Button */}
+          <div className="text-center mt-16">
+            <Link
+              href="/menu"
+              className="inline-flex items-center gap-2 bg-[#EAA444] hover:bg-[#c88238] text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300"
+            >
+              View Full Menu <FaArrowRight />
             </Link>
           </div>
         </div>
