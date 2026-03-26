@@ -31,7 +31,7 @@ const info = [
   {
     icon: "✉️",
     title: "Email",
-    lines: ["hello@brewandbloom.com", "reservations@brewandbloom.com"],
+    lines: ["hello@cozycafé.com", "reservations@cozycafé.com"],
   },
   {
     icon: "🕐",
@@ -140,7 +140,7 @@ export default function Contact() {
                   color: "#4A2C17",
                 }}
               >
-                Visit Brew &amp; Bloom
+                Visit Cozy Café
               </h2>
               <p
                 className="text-sm leading-relaxed"

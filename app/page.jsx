@@ -260,13 +260,13 @@ export default function Home() {
           {/* Header */}
           <div className="text-center mb-16">
             <p className="text-[#C9952A] text-sm tracking-widest uppercase font-medium mb-3">
-              WHY BREW & BLOOM
+              WHY Cozy Cafe
             </p>
             <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight text-[#4A2C17] mb-4">
               Where Heritage Meets Innovation
             </h2>
             <p className="max-w-3xl mx-auto text-lg text-[#6B5040] leading-relaxed">
-              Brew & Bloom blends the timeless art of coffee craftsmanship with
+              Cozy Cafe blends the timeless art of coffee craftsmanship with
               modern workspace amenities. A sanctuary for digital creators,
               coffee lovers, and community builders.
             </p>
@@ -422,8 +422,8 @@ export default function Home() {
 
               <div className="space-y-6 text-[#6B5040] text-[17px] leading-relaxed">
                 <p>
-                  Since 2019, Brew & Bloom has been more than just a café — it's
-                  a community gathering place where friendships are formed over
+                  Since 2015, Cozy Cafe has been more than just a café — it's a
+                  community gathering place where friendships are formed over
                   perfectly brewed coffee.
                 </p>
                 <p>

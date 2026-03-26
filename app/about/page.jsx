@@ -37,7 +37,7 @@ const team = [
     emoji: "🌿",
     name: "Tariq Hasan",
     role: "Founder & Manager",
-    bio: "Started Brew & Bloom in 2019 with a dream and a second-hand espresso machine.",
+    bio: "Started Cozy Cafe in 2015 with a dream and a second-hand espresso machine.",
   },
 ];
 
@@ -55,7 +55,7 @@ const values = [
   {
     icon: <LuUsers size={32} />,
     title: "Community First",
-    desc: "Brew & Bloom is more than a café — it's a gathering place where neighbors become friends.",
+    desc: "Cozy Cafe is more than a café — it's a gathering place where neighbors become friends.",
   },
 ];
 
@@ -132,7 +132,7 @@ export default function About() {
                   height={200}
                   width={400}
                   src="/assets/about-story.jpeg"
-                  alt="Brew & Bloom Cafe Interior"
+                  alt="Cozy Cafe Interior"
                   className="rounded-3xl shadow-xl w-full h-auto object-cover"
                 />
               </div>
@@ -153,10 +153,10 @@ export default function About() {
 
           <div className="prose prose-lg text-[#6B5040] max-w-none leading-relaxed space-y-6">
             <p>
-              In 2019, Tariq Hasan and his close friend turned a small rented
-              space on Garden Street into what is now Brew & Bloom. With a
-              borrowed espresso machine, family recipes, and a deep passion for
-              quality coffee — our journey began.
+              In 2015, Tariq Hasan and his close friend turned a small rented
+              space on Garden Street into what is now Cozy Cafe. With a borrowed
+              espresso machine, family recipes, and a deep passion for quality
+              coffee — our journey began.
             </p>
             <p>
               What started as a humble café has grown into a warm community hub

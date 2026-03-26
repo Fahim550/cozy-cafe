@@ -39,7 +39,7 @@ export default function Navbar() {
               className="font-display font-bold text-lg leading-none"
               style={{ color: '#FDF6EC' }}
             >
-              Brew &amp; Bloom
+              Cozy Café
             </div>
             <div
               className="text-xs tracking-widest uppercase"
