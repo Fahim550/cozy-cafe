@@ -1,7 +1,16 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import {
+  LuArmchair,
+  LuClock,
+  LuCoffee,
+  LuCroissant,
+  LuUsers,
+  LuWifi,
+} from "react-icons/lu";
 
 // ── Scroll animation hook ───────────────────────────────────────
 function useScrollAnimation() {
@@ -65,6 +74,45 @@ const featured = [
     tag: "Fresh Daily",
     price: "৳ 180",
     image: "/assets/coffee3.jpeg",
+  },
+];
+
+const features = [
+  {
+    icon: <LuCoffee size={28} />,
+    bgColor: "#C9952A",
+    title: "Artisan Coffee",
+    desc: "Sourced from single-origin beans and roasted to perfection. Every cup tells a story of craftsmanship.",
+  },
+  {
+    icon: <LuWifi size={28} />,
+    bgColor: "#14B8A6",
+    title: "High-Speed WiFi",
+    desc: "Fiber-optic internet built for productivity. Upload, download, and video call without interruption.",
+  },
+  {
+    icon: <LuArmchair size={28} />,
+    bgColor: "#C9952A",
+    title: "Curated Ambiance",
+    desc: "Thoughtfully designed spaces with comfortable seating, warm lighting, and a creative atmosphere.",
+  },
+  {
+    icon: <LuCroissant size={28} />,
+    bgColor: "#C9952A",
+    title: "Fresh Cuisine",
+    desc: "From flaky croissants to hearty sandwiches — crafted daily with premium ingredients.",
+  },
+  {
+    icon: <LuClock size={28} />,
+    bgColor: "#14B8A6",
+    title: "Extended Hours",
+    desc: "Open early for your morning brew and late for night owls. Your schedule, our priority.",
+  },
+  {
+    icon: <LuUsers size={28} />,
+    bgColor: "#C9952A",
+    title: "Community Hub",
+    desc: "Connect with fellow creators, entrepreneurs, and coffee lovers in an inspiring environment.",
   },
 ];
 
@@ -192,80 +240,65 @@ export default function Home() {
         </div> */}
       </section>
 
-      {/* ── Featured Items ────────────────────────────────────── */}
-      {/* <section className="py-24 px-6" style={{ background: "#FDF6EC" }}>
+      <section className="py-20 px-6 bg-[#FDF6EC]">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-on-scroll">
-            <p
-              className="text-xs tracking-widest uppercase mb-3"
-              style={{ color: "#C9952A" }}
-            >
-              From Our Kitchen
+          {/* Header */}
+          <div className="text-center mb-16">
+            <p className="text-[#C9952A] text-sm tracking-widest uppercase font-medium mb-3">
+              WHERE HERITAGE MEETS INNOVATION
             </p>
-            <h2
-              className="font-display font-bold mb-4"
-              style={{
-                fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-                color: "#4A2C17",
-              }}
-            >
-              Today's Favourites
+            <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight text-[#4A2C17] mb-6">
+              A Sanctuary for Digital Creators
             </h2>
-            <div className="divider mx-auto">
-              <div className="divider-line" />
-              <div className="divider-dot" />
-              <div className="divider-line" />
-            </div>
+            <p className="max-w-3xl mx-auto text-lg text-[#6B5040] leading-relaxed">
+              Brew & Bloom blends the timeless art of coffee craftsmanship with
+              modern workspace amenities. Whether you're closing a deal, coding
+              your next app, or simply savoring the moment — we've created the
+              perfect environment.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featured.map((item, i) => (
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
               <div
-                key={item.name}
-                className="menu-card p-8 animate-on-scroll"
-                style={{ transitionDelay: `${i * 0.12}s` }}
+                key={index}
+                className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 group"
               >
-                <div className="text-5xl mb-5">{item.emoji}</div>
+                {/* Icon */}
                 <div
-                  className="inline-block text-xs px-3 py-1 mb-4 tracking-widest uppercase"
-                  style={{
-                    background: "#F5E6CC",
-                    color: "#A0673A",
-                    fontSize: "0.65rem",
-                  }}
+                  className="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 transition-transform group-hover:scale-110"
+                  style={{ backgroundColor: feature.bgColor }}
                 >
-                  {item.tag}
+                  <div className="text-white">{feature.icon}</div>
                 </div>
-                <h3
-                  className="font-display font-semibold text-xl mb-2"
-                  style={{ color: "#4A2C17" }}
-                >
-                  {item.name}
+
+                {/* Title */}
+                <h3 className="font-display font-semibold text-2xl text-[#4A2C17] mb-3">
+                  {feature.title}
                 </h3>
-                <p
-                  className="text-sm leading-relaxed mb-6"
-                  style={{ color: "#7B5C3E" }}
-                >
-                  {item.desc}
-                </p>
-                <div
-                  className="font-display font-bold text-lg"
-                  style={{ color: "#C9952A" }}
-                >
-                  {item.price}
-                </div>
+
+                {/* Description */}
+                <p className="text-[#7B5C3E] leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12 animate-on-scroll">
-            <Link href="/menu" className="btn-primary">
-              View Full Menu
+          {/* Discover Button */}
+          <div className="flex justify-center mt-16">
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-3 bg-[#4A2C17] hover:bg-[#3A2212] text-white px-10 py-4 rounded-full font-medium transition-all duration-300"
+            >
+              Discover Our Story
+              <FaArrowRight />
             </Link>
           </div>
         </div>
-      </section> */}
-      <section className="py-24 px-6 bg-[#FDF6EC]">
+      </section>
+
+      {/* ── Featured Items ────────────────────────────────────── */}
+      <section className="py-24 px-6 bg-[#F5E6CC]">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
@@ -330,20 +363,15 @@ export default function Home() {
                     {item.desc}
                   </p>
 
-                  <div className="flex items-center justify-between">
-                    {/* <div
-                      className="font-display font-bold text-2xl"
-                      style={{ color: "#F5E6CC" }}
-                    >
-                      {item.price}
-                    </div> */}
-                    <Link
-                      href="/menu"
-                      className="text-sm uppercase tracking-widest hover:underline flex items-center gap-2"
-                    >
-                      Explore <FaArrowRight />
-                    </Link>
-                  </div>
+                  <Link
+                    href="/menu"
+                    className="group inline-flex items-center gap-3 text-sm uppercase tracking-widest text-[#EAA444] hover:text-[#C9952A]"
+                  >
+                    Explore
+                    <span className="transition-all duration-300 group-hover:translate-x-2 group-hover:text-[#C9952A]">
+                      <FaArrowRight size={17} />
+                    </span>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -362,7 +390,7 @@ export default function Home() {
       </section>
 
       {/* ── About Snippet ─────────────────────────────────────── */}
-      <section
+      {/* <section
         className="py-24 px-6"
         style={{
           background: "linear-gradient(135deg, #4A2C17 0%, #2D5A27 100%)",
@@ -398,6 +426,74 @@ export default function Home() {
           <Link href="/about" className="btn-outline">
             Read Our Story
           </Link>
+        </div>
+      </section> */}
+
+      <section className="py-24 px-6 bg-[#FDF6EC]">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Side - Text Content */}
+            <div className="space-y-8">
+              <p className="text-[#C9952A] text-sm tracking-widest uppercase font-medium">
+                OUR STORY
+              </p>
+
+              <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight text-[#4A2C17]">
+                Crafted with Passion,
+                <br />
+                Served with Love
+              </h2>
+
+              <div className="space-y-6 text-[#6B5040] text-[17px] leading-relaxed">
+                <p>
+                  Since 2019, Brew & Bloom has been more than just a café — it's
+                  a community gathering place where friendships are formed over
+                  perfectly brewed coffee.
+                </p>
+                <p>
+                  We source our beans from sustainable farms around the world
+                  and roast them in small batches to ensure the freshest, most
+                  flavorful cup every time.
+                </p>
+              </div>
+
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-3 group bg-[#4A2C17] hover:bg-[#3A2212] text-white px-8 py-4 rounded-full font-medium transition-all duration-300"
+              >
+                Learn More About Us
+                {/* <span className="transition-transform group-hover:translate-x-1">
+                  →
+                </span> */}
+                <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+            {/* Right Side - Two Images */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Coffee Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-lg aspect-[3/4]">
+                <Image
+                  width={500}
+                  height={500}
+                  src="/assets/story1.jpeg"
+                  alt="Artisan Coffee"
+                  className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                />
+              </div>
+
+              {/* Pastries Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-lg aspect-[3/4] mt-8 sm:mt-12">
+                <Image
+                  width={500}
+                  height={500}
+                  src="/assets/story2.jpeg"
+                  alt="Fresh Baked Pastries"
+                  className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
