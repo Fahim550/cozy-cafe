@@ -21,17 +21,17 @@ const info = [
   {
     icon: "📍",
     title: "Address",
-    lines: ["123 Garden Street", "Dhaka 1000, Bangladesh"],
+    lines: ["8834 E 34 Rd #131, Cadillac, MI 49601"],
   },
   {
     icon: "📞",
     title: "Phone",
-    lines: ["+880 1700-000000", "+880 1800-000000"],
+    lines: ["+1(56)88289017"],
   },
   {
     icon: "✉️",
     title: "Email",
-    lines: ["hello@cozycafé.com", "reservations@cozycafé.com"],
+    lines: ["hello@cozycafe.com", "reservations@cozycafe.com"],
   },
   {
     icon: "🕐",
@@ -434,7 +434,8 @@ export default function Contact() {
               className="font-display font-semibold text-lg"
               style={{ color: "#4A2C17" }}
             >
-              123 Garden Street, Dhaka
+              <p>8834 E 34 Rd #131</p>
+              <p>Cadillac, MI 49601</p>
             </p>
             <p className="text-sm mt-1" style={{ color: "#7B5C3E" }}>
               Embed your Google Maps iframe here

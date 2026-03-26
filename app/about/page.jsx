@@ -25,7 +25,7 @@ const team = [
     emoji: "👨‍🍳",
     name: "Rafiq Islam",
     role: "Head Chef",
-    bio: "15 years of culinary experience across Dhaka and Chittagong.",
+    bio: "15 years of culinary experience across Cadillac, MI.",
   },
   {
     emoji: "☕",
@@ -137,8 +137,8 @@ export default function About() {
                 />
               </div>
               <div className="absolute bottom-6 left-6 bg-[#4A2C17] text-white px-6 py-4 rounded-2xl shadow-lg">
-                <p className="text-sm font-medium">Since 2019</p>
-                <p className="text-xs text-[#C4A882]">Dhaka, Bangladesh</p>
+                <p className="text-sm font-medium">Since 2015</p>
+                <p className="text-xs text-[#C4A882]">Cadillac, MI</p>
               </div>
             </div>
           </div>

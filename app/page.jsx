@@ -196,7 +196,7 @@ export default function Home() {
               className="text-xs tracking-widest uppercase"
               style={{ color: "#C9952A" }}
             >
-              Est. 2019 · Dhaka, Bangladesh
+              Est. 2015 · Cadillac, MI
             </span>
             <div
               style={{ height: "1px", width: "40px", background: "#C9952A" }}

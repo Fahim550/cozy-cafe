@@ -67,8 +67,9 @@ export default function Footer() {
               Visit Us
             </h4>
             <div className="space-y-3 text-sm" style={{ color: "#A0856A" }}>
-              <p>📍 123 Garden Street, Dhaka 1000</p>
-              <p>📞 +880 1700-000000</p>
+              <p>8834 E 34 Rd #131, Cadillac, MI 49601</p>
+
+              <p>📞 +1(56)88289017</p>
               <p>✉️ hello@cozycafe.com</p>
               <div className="pt-2">
                 <p className="font-semibold mb-1" style={{ color: "#E8D0A8" }}>
