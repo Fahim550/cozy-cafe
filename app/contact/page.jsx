@@ -82,10 +82,8 @@ export default function Contact() {
     <>
       {/* ── Hero ──────────────────────────────────────────────── */}
       <section
-        className="pt-36 pb-20 px-6 text-center relative overflow-hidden"
-        style={{
-          background: "linear-gradient(150deg, #2A1A0A, #4A2C17 60%, #2D5A27)",
-        }}
+        className="pt-28 pb-16 px-6 text-center relative overflow-hidden"
+        style={{ background: "linear-gradient(150deg, #2A1A0A, #4A2C17)" }}
       >
         <div
           className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-10"

@@ -66,10 +66,8 @@ export default function About() {
     <>
       {/* ── Hero ──────────────────────────────────────────────── */}
       <section
-        className="pt-36 pb-24 px-6 text-center relative overflow-hidden"
-        style={{
-          background: "linear-gradient(150deg, #2A1A0A, #4A2C17 60%, #2D5A27)",
-        }}
+        className="pt-28 pb-16 px-6 text-center relative overflow-hidden"
+        style={{ background: "linear-gradient(110deg, #2A1A0A, #4A2C17)" }}
       >
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full opacity-10"
